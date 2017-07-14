@@ -30,6 +30,8 @@ for row in rows:
         days = cols[11].text.strip()
         teacher = cols[14].text.strip()
         classes.append(ITESMClass(name, code, time_begin, time_end, days,
-                                   teacher))
+                                  teacher))
 
-print(classes[0].name)
+classes = sorted(classes, key=lambda course: course.time_end)
+for course in classes:
+    print(course.name)
